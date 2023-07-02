@@ -1,0 +1,18 @@
+<!--
+ - Created by CalebGovender on 2023/07/02.
+ -->
+
+<apex:page showHeader="true" sidebar="true" standardStylesheets="true" id="PublicHolidayButton">
+    <apex:includeLightning />
+    <div id="auraContainer"></div>
+
+    <script>
+        $Lightning.use("c:PublicHoliday_App", function() {
+            $Lightning.createComponent("c:PublicHoliday", {},
+                "auraContainer",
+                function(cmp) {
+                }
+            );
+        });
+    </script>
+</apex:page>

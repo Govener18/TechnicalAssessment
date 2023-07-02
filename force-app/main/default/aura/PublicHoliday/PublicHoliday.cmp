@@ -1,0 +1,25 @@
+<!--
+ - Created by CalebGovender on 2023/06/27.
+ -->
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId" controller="PublicHolidayController">
+    <aura:attribute name="isIDValid" type="Boolean" default="true" />
+    <aura:attribute name="isHidden" type="Boolean" default="true" />
+    <aura:attribute name="isVisible" type="Boolean" default="false" />
+    <aura:attribute name="IDInput" type="String" />
+    <aura:attribute name="APIValue" type="String" />
+
+    <div class="border-box center-container">
+
+        <div class="border-box-header" hidden="{!v.isVisible}"><h1>Enter a valid South African ID Number</h1></div>
+
+            <div class="readOnlyTextArea" hidden="{!v.isHidden}">
+                <textarea class="readOnlyTextArea"  value="{!v.APIValue}" readonly="true"></textarea>
+            </div>
+
+        <div class="component-spacing border-box-footer button-size" hidden="{!v.isVisible}">
+            <lightning:input label="ID Number" value="{!v.IDInput}" onfocusout="{!c.onInputChange}" />
+            <lightning:button type="submit" label="Check Public Holiday" variant="brand" disabled="{!v.isIDValid}" onclick="{!c.onCheckClick}"/>
+        </div>
+
+    </div>
+</aura:component>
